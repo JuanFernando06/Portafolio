@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juan Fernando García Torrente — Desarrollador Full-Stack Junior</title>
+  <meta name="description" content="Portafolio de Juan Fernando García Torrente, Desarrollador Web Full-Stack Junior. Proyectos con Next.js, TypeScript, Supabase y Flutter.">
+  <meta property="og:title" content="Juan Fernando García Torrente — Desarrollador Full-Stack Junior">
+  <meta property="og:description" content="Portafolio de Juan Fernando García Torrente, Desarrollador Web Full-Stack Junior. Proyectos con Next.js, TypeScript, Supabase y Flutter.">
+  <meta property="og:type" content="website">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config = { darkMode: 'class' }</script>
+  <script>
+    (() => {
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (savedTheme === 'dark' || (!savedTheme && prefersDark)) document.documentElement.classList.add('dark');
+    })();
+  </script>
+  <!-- Alternativa para producción tras compilar Tailwind en local: <link rel="stylesheet" href="./dist/output.css"> -->
+</head>
+<body class="bg-white text-slate-800 antialiased transition-colors duration-200 dark:bg-slate-900 dark:text-slate-200">
+  <header class="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur dark:border-slate-700/80 dark:bg-slate-900/90">
+    <nav class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8" aria-label="Navegación principal">
+      <a href="#hero" class="font-bold tracking-tight text-slate-900 transition duration-200 hover:text-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-500 dark:text-white dark:hover:text-teal-400">Juan Fernando</a>
+      <div class="hidden items-center gap-4 text-sm md:flex">
+        <a href="#sobre-mi" class="transition duration-200 hover:text-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-500 dark:hover:text-teal-400">Sobre mí</a>
+        <a href="#experiencia" class="transition duration-200 hover:text-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-500 dark:hover:text-teal-400">Experiencia</a>
+        <a href="#proyectos" class="transition duration-200 hover:text-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-500 dark:hover:text-teal-400">Proyectos</a>
+        <a href="#stack" class="transition duration-200 hover:text-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-500 dark:hover:text-teal-400">Stack</a>
+        <a href="#educacion" class="transition duration-200 hover:text-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-500 dark:hover:text-teal-400">Educación</a>
+        <a href="#contacto" class="transition duration-200 hover:text-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-500 dark:hover:text-teal-400">Contacto</a>
+      </div>
+      <button id="theme-toggle" type="button" aria-label="Cambiar tema" class="rounded-lg p-2 text-lg transition duration-200 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-teal-500 dark:hover:bg-slate-800">🌓</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="hero" class="mx-auto flex min-h-[70vh] max-w-6xl items-center px-4 py-20 sm:px-6 lg:px-8">
+      <div class="grid w-full items-center gap-10 md:grid-cols-[1fr_auto]">
+        <div>
+          <p class="mb-3 font-semibold text-teal-600 dark:text-teal-400">Murcia, España</p>
+          <h1 class="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl dark:text-white">Hola, soy Juan Fernando</h1>
+          <p class="mt-5 text-xl font-semibold text-slate-600 dark:text-slate-300">Desarrollador Web Full-Stack Junior</p>
+          <p class="mt-3 max-w-2xl leading-7 text-slate-500 dark:text-slate-400">Murcia, España · Titulado en DAW · Next.js · TypeScript · Supabase · Flutter</p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="assets/cv.pdf" download class="rounded-lg bg-teal-600 px-5 py-3 font-semibold text-white transition duration-200 hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 dark:focus:ring-offset-slate-900">Descargar CV</a>
+            <a href="#proyectos" class="rounded-lg border border-teal-600 px-5 py-3 font-semibold text-teal-700 transition duration-200 hover:bg-teal-50 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 dark:border-teal-400 dark:text-teal-300 dark:hover:bg-teal-900/30 dark:focus:ring-offset-slate-900">Ver proyectos</a>
+            <a href="mailto:juanfernandogt06@gmail.com" class="rounded-lg border border-slate-300 px-5 py-3 font-semibold text-slate-700 transition duration-200 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 dark:border-slate-600 dark:text-slate-200 dark:hover:bg-slate-800 dark:focus:ring-offset-slate-900">Contacto</a>
+          </div>
+        </div>
+        <img src="assets/foto-perfil.jpg" alt="Foto de perfil de Juan Fernando García Torrente" class="h-28 w-28 rounded-full object-cover ring-4 ring-teal-500/30 md:h-40 md:w-40" onerror="this.style.display='none'">
+      </div>
+    </section>
+
+    <section id="sobre-mi" class="border-t border-slate-200 py-20 dark:border-slate-800">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-slate-900 dark:text-white">Sobre mí</h2>
+        <p class="mt-6 max-w-3xl leading-7 text-slate-600 dark:text-slate-300">Titulado en Desarrollo de Aplicaciones Web (DAW) con experiencia real en empresa desarrollando aplicaciones web internas con Next.js, TypeScript y Supabase. Me interesa el desarrollo Full-Stack, las apps móviles y el desarrollo asistido por IA.</p>
+        <!-- TODO: Añade aquí 2-3 párrafos con tu historia como programador: cuándo empezaste, qué te enganchó, cómo trabajas, qué tipo de problemas disfrutas resolviendo. -->
+        <p class="mt-4 italic text-slate-400">[Añade aquí tu historia personal como programador]</p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <span class="rounded-full bg-teal-50 px-3 py-1.5 text-sm font-medium text-teal-700 dark:bg-teal-900/40 dark:text-teal-300">Resolución de problemas</span>
+          <span class="rounded-full bg-teal-50 px-3 py-1.5 text-sm font-medium text-teal-700 dark:bg-teal-900/40 dark:text-teal-300">Aprendizaje autodidacta</span>
+          <span class="rounded-full bg-teal-50 px-3 py-1.5 text-sm font-medium text-teal-700 dark:bg-teal-900/40 dark:text-teal-300">Trabajo en equipo</span>
+          <span class="rounded-full bg-teal-50 px-3 py-1.5 text-sm font-medium text-teal-700 dark:bg-teal-900/40 dark:text-teal-300">Desarrollo asistido por IA</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="experiencia" class="bg-slate-50 py-20 dark:bg-slate-950">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-slate-900 dark:text-white">Experiencia</h2>
+        <ol class="mt-10 border-l-2 border-teal-500 pl-6">
+          <li class="relative">
+            <span class="absolute -left-[35px] top-1 h-4 w-4 rounded-full border-4 border-slate-50 bg-teal-500 ring-2 ring-teal-500 dark:border-slate-950" aria-hidden="true"></span>
+            <p class="text-sm font-semibold text-teal-600 dark:text-teal-400">Prácticas DAW · Murcia · 500 horas</p>
+            <h3 class="mt-1 text-xl font-bold text-slate-900 dark:text-white">Practicas - Boca Te Lía</h3>
+            <p class="mt-4 rounded-lg border border-slate-200 bg-white p-4 text-sm text-slate-600 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300"><strong>BlueCheck</strong> — desarrollo realizado sin capturas porque es un proyecto privado de empresa.</p>
+            <ul class="mt-5 list-disc space-y-2 pl-5 leading-7 text-slate-600 dark:text-slate-300">
+              <li>Desarrollo de BlueCheck con Next.js, TypeScript y Supabase.</li>
+              <li>Diseño de base de datos con relaciones y claves foráneas.</li>
+              <li>Gestión de activos con códigos QR.</li>
+              <li>Formularios y vistas para usuarios y administradores.</li>
+              <li>Trabajo con datos reales de Excel, SharePoint y Supabase.</li>
+              <li>Alertas por correo y Teams con Power Automate.</li>
+              <li>Pruebas, corrección de bugs y documentación técnica.</li>
+              <li>Despliegue en VM y producción con Git.</li>
+              <li>Desarrollo asistido por IA con Claude Code.</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="proyectos" class="py-20">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-slate-900 dark:text-white">Proyectos</h2>
+        <p class="mt-3 text-slate-500 dark:text-slate-400">Cada proyecto tiene espacio para una imagen principal y una galería de 3 miniaturas. Los textos marcados como TODO se rellenarán después.</p>
+
+        <article class="mb-20 mt-12">
+          <div class="flex flex-col gap-8 lg:flex-row">
+            <div class="lg:w-1/2">
+              <div class="aspect-square overflow-hidden rounded-xl border border-slate-200 bg-slate-100 dark:border-slate-700 dark:bg-slate-800"><img src="assets/pzukko-player-1.jpeg" alt="Captura de PZukko Player" loading="lazy" class="h-full w-full object-cover"></div>
+              <div class="mt-3 grid grid-cols-3 gap-3">
+                <img src="assets/pzukko-player-2.jpeg" alt="Captura de las playlists de PZukko Player" loading="lazy" class="aspect-square w-full rounded-lg border border-slate-200 bg-slate-100 object-cover dark:border-slate-700 dark:bg-slate-800">
+                <img src="assets/pzukko-player-3.jpeg" alt="Captura de ordenación de canciones en PZukko Player" loading="lazy" class="aspect-square w-full rounded-lg border border-slate-200 bg-slate-100 object-cover dark:border-slate-700 dark:bg-slate-800">
+                <img src="assets/pzukko-player-4.jpeg" alt="Captura del reproductor de PZukko Player" loading="lazy" class="aspect-square w-full rounded-lg border border-slate-200 bg-slate-100 object-cover dark:border-slate-700 dark:bg-slate-800">
+                <img src="assets/pzukko-player-5.jpeg" alt="Captura adicional de PZukko Player" loading="lazy" class="aspect-square w-full rounded-lg border border-slate-200 bg-slate-100 object-cover dark:border-slate-700 dark:bg-slate-800">
+</div>
+            </div>
+            <div class="flex flex-col justify-center lg:w-1/2">
+              <div class="mb-2 flex items-center gap-3"><h3 class="text-xl font-bold text-slate-900 dark:text-white">PZukko Player</h3><span class="rounded-full bg-purple-100 px-2 py-0.5 text-xs text-purple-700 dark:bg-purple-900/40 dark:text-purple-300">Móvil</span></div>
+              <p class="mb-4 text-slate-600 dark:text-slate-300">Reproductor de música local para Android, diseñado para ofrecer una experiencia limpia, rápida y sin distracciones, centrada en la biblioteca musical y las playlists del usuario. Es una app local-first: no requiere cuenta, no incluye anuncios, no consume datos y respeta la privacidad.</p>
+              <ul class="mb-5 list-disc space-y-2 pl-5 text-sm leading-6 text-slate-600 dark:text-slate-300">
+                <li>Biblioteca local mediante MediaStore, reproducción en segundo plano y controles desde la pantalla de bloqueo.</li>
+                <li>Playlists, buscador en tiempo real, ordenación avanzada y contador de reproducciones.</li>
+                <li>Carga diferida y caché de portadas con concurrencia limitada para evitar bloqueos con bibliotecas de 500+ canciones.</li>
+                <li>Notificaciones compatibles con Android 13+, HyperOS y Foreground Services de Android 14/16.</li>
+                <li>Estado optimista con Riverpod y estrategia de caché para resolver limitaciones de librerías nativas.</li>
+              </ul>
+              <div class="mb-5 flex flex-wrap gap-2"><span class="rounded bg-slate-100 px-2.5 py-1 text-xs font-medium dark:bg-slate-800">Flutter</span><span class="rounded bg-slate-100 px-2.5 py-1 text-xs font-medium dark:bg-slate-800">Dart</span><span class="rounded bg-slate-100 px-2.5 py-1 text-xs font-medium dark:bg-slate-800">Riverpod</span><span class="rounded bg-slate-100 px-2.5 py-1 text-xs font-medium dark:bg-slate-800">just_audio</span><span class="rounded bg-slate-100 px-2.5 py-1 text-xs font-medium dark:bg-slate-800">Kotlin</span><span class="rounded bg-slate-100 px-2.5 py-1 text-xs font-medium dark:bg-slate-800">Android</span></div>
+              <!-- TODO: Añade el enlace a la demo o repositorio cuando esté disponible. -->
+              <p class="text-sm italic text-slate-400">[TODO: añade el enlace a la demo o repositorio]</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="mb-20">
+          <div class="flex flex-col gap-8 lg:flex-row-reverse">
+            <div class="lg:w-1/2">
+              <div class="aspect-square overflow-hidden rounded-xl border border-slate-200 bg-slate-100 dark:border-slate-700 dark:bg-slate-800"><img src="assets/pzukko-tip-1.jpeg" alt="Captura de inicio de sesión de PZukkoTip" loading="lazy" class="h-full w-full object-cover"></div>
+              <div class="mt-3 grid grid-cols-3 gap-3">
+                <img src="assets/pzukko-tip-2.jpeg" alt="Captura de PZukkoTip" loading="lazy" class="aspect-square w-full rounded-lg border border-slate-200 bg-slate-100 object-cover dark:border-slate-700 dark:bg-slate-800">
+                <img src="assets/pzukko-tip-3.jpeg" alt="Captura de PZukkoTip" loading="lazy" class="aspect-square w-full rounded-lg border border-slate-200 bg-slate-100 object-cover dark:border-slate-700 dark:bg-slate-800">
+                <img src="assets/pzukko-tip-4.jpeg" alt="Captura de PZukkoTip" loading="lazy" class="aspect-square w-full rounded-lg border border-slate-200 bg-slate-100 object-cover dark:border-slate-700 dark:bg-slate-800">
+                <img src="assets/pzukko-tip-5.jpeg" alt="Captura de PZukkoTip" loading="lazy" class="aspect-square w-full rounded-lg border border-slate-200 bg-slate-100 object-cover dark:border-slate-700 dark:bg-slate-800">
+                <img src="assets/pzukko-tip-6.jpeg" alt="Captura de la biblioteca de PZukkoTip" loading="lazy" class="aspect-square w-full rounded-lg border border-slate-200 bg-slate-100 object-cover dark:border-slate-700 dark:bg-slate-800">
+                <img src="assets/pzukko-tip-7.jpeg" alt="Captura de categorías de PZukkoTip" loading="lazy" class="aspect-square w-full rounded-lg border border-slate-200 bg-slate-100 object-cover dark:border-slate-700 dark:bg-slate-800">
+</div>
+            </div>
+            <div class="flex flex-col justify-center lg:w-1/2">
+              <div class="mb-2 flex items-center gap-3"><h3 class="text-xl font-bold text-slate-900 dark:text-white">PZukkoTip</h3><span class="rounded-full bg-purple-100 px-2 py-0.5 text-xs text-purple-700 dark:bg-purple-900/40 dark:text-purple-300">Móvil</span></div>
+              <p class="mb-4 text-slate-600 dark:text-slate-300">Tu biblioteca personal e inteligente para el contenido de redes sociales. PZukkoTip centraliza vídeos de TikTok, Instagram y YouTube, permitiendo guardarlos, buscarlos y organizarlos mediante categorías y subcategorías personalizables.</p>
+              <ul class="mb-5 list-disc space-y-2 pl-5 text-sm leading-6 text-slate-600 dark:text-slate-300">
+                <li>Captura de enlaces desde el menú Compartir del sistema operativo y extracción automática de títulos y portadas.</li>
+                <li>Categorización asistida por IA con visión artificial on-device y taxonomía jerárquica sin límites predefinidos.</li>
+                <li>Biblioteca visual con cuadrícula, búsqueda, filtros, paginación y selección múltiple para borrado masivo.</li>
+                <li>URLs normalizadas y reproducción delegada en la aplicación nativa para mantener una experiencia fiable.</li>
+                <li>Base de datos PostgreSQL con categorías autorreferenciadas, índices y políticas RLS para proteger los datos.</li>
+              </ul>
+              <div class="mb-5 flex flex-wrap gap-2"><span class="rounded bg-slate-100 px-2.5 py-1 text-xs font-medium dark:bg-slate-800">Flutter</span><span class="rounded bg-slate-100 px-2.5 py-1 text-xs font-medium dark:bg-slate-800">Dart</span><span class="rounded bg-slate-100 px-2.5 py-1 text-xs font-medium dark:bg-slate-800">Supabase</span><span class="rounded bg-slate-100 px-2.5 py-1 text-xs font-medium dark:bg-slate-800">PostgreSQL</span><span class="rounded bg-slate-100 px-2.5 py-1 text-xs font-medium dark:bg-slate-800">Google ML Kit</span><span class="rounded bg-slate-100 px-2.5 py-1 text-xs font-medium dark:bg-slate-800">Material 3</span></div>
+              <!-- TODO: Añade el enlace a la demo o repositorio cuando esté disponible. -->
+              <p class="text-sm italic text-slate-400">[TODO: añade el enlace a la demo o repositorio]</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="mb-20">
+          <div class="flex flex-col gap-8 lg:flex-row">
+            <div class="lg:w-1/2">
+              <div class="aspect-video overflow-hidden rounded-xl border border-slate-200 bg-slate-100 dark:border-slate-700 dark:bg-slate-800"><img src="assets/nutrizukko-1.png" alt="Captura de NutriZukko" loading="lazy" class="h-full w-full object-contain"></div>
+              <div class="mt-3 grid grid-cols-3 gap-3">
+                <img src="assets/nutrizukko-2.png" alt="Captura de NutriZukko" loading="lazy" class="aspect-video w-full rounded-lg border border-slate-200 bg-slate-100 object-contain dark:border-slate-700 dark:bg-slate-800">
+                <img src="assets/nutrizukko-3.png" alt="Captura de NutriZukko" loading="lazy" class="aspect-video w-full rounded-lg border border-slate-200 bg-slate-100 object-contain dark:border-slate-700 dark:bg-slate-800">
+                <img src="assets/nutrizukko-4.png" alt="Captura de NutriZukko" loading="lazy" class="aspect-video w-full rounded-lg border border-slate-200 bg-slate-100 object-contain dark:border-slate-700 dark:bg-slate-800">
+                <img src="assets/nutrizukko-5.png" alt="Captura de NutriZukko" loading="lazy" class="aspect-video w-full rounded-lg border border-slate-200 bg-slate-100 object-contain dark:border-slate-700 dark:bg-slate-800">
+                <img src="assets/nutrizukko-6.png" alt="Captura de NutriZukko" loading="lazy" class="aspect-video w-full rounded-lg border border-slate-200 bg-slate-100 object-contain dark:border-slate-700 dark:bg-slate-800">
+                <img src="assets/nutrizukko-7.png" alt="Captura de NutriZukko" loading="lazy" class="aspect-video w-full rounded-lg border border-slate-200 bg-slate-100 object-contain dark:border-slate-700 dark:bg-slate-800">
+                <img src="assets/nutrizukko-8.png" alt="Captura de NutriZukko" loading="lazy" class="aspect-video w-full rounded-lg border border-slate-200 bg-slate-100 object-contain dark:border-slate-700 dark:bg-slate-800">
+                <img src="assets/nutrizukko-9.png" alt="Captura de NutriZukko" loading="lazy" class="aspect-video w-full rounded-lg border border-slate-200 bg-slate-100 object-contain dark:border-slate-700 dark:bg-slate-800">
+              </div>
+            </div>
+            <div class="flex flex-col justify-center lg:w-1/2">
+              <div class="mb-2 flex items-center gap-3"><h3 class="text-xl font-bold text-slate-900 dark:text-white">NutriZukko</h3><span class="rounded-full bg-green-100 px-2 py-0.5 text-xs text-green-700 dark:bg-green-900/40 dark:text-green-300">En producción</span></div>
+              <p class="mb-4 text-slate-600 dark:text-slate-300">Aplicación web full-stack inspirada en el modelo de Yuka, creada para descubrir qué contienen realmente los alimentos y cosméticos, evaluar su impacto en la salud y organizar compras y rutinas de cuidado personal con información visual y accionable.</p>
+              <ul class="mb-5 list-disc space-y-2 pl-5 text-sm leading-6 text-slate-600 dark:text-slate-300">
+                <li>Autenticación con Supabase Auth y rutas privadas protegidas mediante middleware.</li>
+                <li>Búsqueda híbrida por código de barras: caché local y APIs de Open Food Facts y Open Beauty Facts.</li>
+                <li>Análisis de alimentos con Nutri-Score y detección automática de aditivos E-numbers.</li>
+                <li>Algoritmo propio en TypeScript para puntuar cosméticos según sus ingredientes INCI.</li>
+                <li>Historial, favoritos, colecciones personalizadas, buscador y catálogo comunitario con filtros.</li>
+              </ul>
+              <div class="mb-5 flex flex-wrap gap-2"><span class="rounded bg-slate-100 px-2.5 py-1 text-xs font-medium dark:bg-slate-800">Next.js 15</span><span class="rounded bg-slate-100 px-2.5 py-1 text-xs font-medium dark:bg-slate-800">React 19</span><span class="rounded bg-slate-100 px-2.5 py-1 text-xs font-medium dark:bg-slate-800">Tailwind CSS</span><span class="rounded bg-slate-100 px-2.5 py-1 text-xs font-medium dark:bg-slate-800">Supabase</span><span class="rounded bg-slate-100 px-2.5 py-1 text-xs font-medium dark:bg-slate-800">PostgreSQL</span><span class="rounded bg-slate-100 px-2.5 py-1 text-xs font-medium dark:bg-slate-800">Vercel</span></div>
+              <!-- TODO: Añade el enlace público de NutriZukko cuando esté disponible. -->
+              <p class="text-sm italic text-slate-400">[TODO: añade el enlace público de NutriZukko]</p>
+            </div>
+          </div>
+        </article>
+
+
+
+        
+              </div>
+    </section>
+
+    <section id="stack" class="bg-slate-50 py-20 dark:bg-slate-950"><div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8"><h2 class="text-3xl font-bold text-slate-900 dark:text-white">Stack / Tecnologías</h2><div class="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4"><div><h3 class="text-sm font-bold uppercase tracking-wide text-teal-600 dark:text-teal-400">Web</h3><p class="mt-3 leading-7 text-slate-600 dark:text-slate-300">Next.js · React · TypeScript · Node.js · HTML5 / CSS3 · Tailwind CSS</p></div><div><h3 class="text-sm font-bold uppercase tracking-wide text-teal-600 dark:text-teal-400">Backend y datos</h3><p class="mt-3 leading-7 text-slate-600 dark:text-slate-300">Supabase · PostgreSQL · APIs REST · Git / GitHub</p></div><div><h3 class="text-sm font-bold uppercase tracking-wide text-teal-600 dark:text-teal-400">Mobile</h3><p class="mt-3 leading-7 text-slate-600 dark:text-slate-300">Flutter · Dart</p></div><div><h3 class="text-sm font-bold uppercase tracking-wide text-teal-600 dark:text-teal-400">Herramientas</h3><p class="mt-3 leading-7 text-slate-600 dark:text-slate-300">Claude Code · Cursor · Power Apps · Power Automate · WordPress</p></div></div></div></section>
+
+    <section id="educacion" class="py-20"><div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8"><h2 class="text-3xl font-bold text-slate-900 dark:text-white">Educación e idiomas</h2><div class="mt-8 grid gap-4 md:grid-cols-2"><div class="rounded-lg border border-slate-200 p-4 dark:border-slate-700"><h3 class="font-bold text-slate-900 dark:text-white">Técnico Superior en Desarrollo de Aplicaciones Web (DAW)</h3><p class="mt-2 text-slate-500 dark:text-slate-400">IES Alcántara · Murcia · 2024 – 2026</p></div><div class="rounded-lg border border-slate-200 p-4 dark:border-slate-700"><h3 class="font-bold text-slate-900 dark:text-white">Idiomas</h3><p class="mt-2 text-slate-500 dark:text-slate-400">Español — Nativo · Inglés — B1</p></div></div></div></section>
+
+    <section id="contacto" class="bg-slate-50 py-20 dark:bg-slate-950"><div class="mx-auto max-w-6xl px-4 text-center sm:px-6 lg:px-8"><h2 class="text-3xl font-bold text-slate-900 dark:text-white">Contacto</h2><p class="mt-4 text-slate-600 dark:text-slate-300">¿Hablamos? Escríbeme por cualquiera de estos medios.</p><div class="mt-8 flex flex-wrap justify-center gap-3"><a href="mailto:juanfernandogt06@gmail.com" class="rounded-lg bg-teal-600 px-5 py-3 font-semibold text-white transition duration-200 hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-500">Email</a><a href="https://github.com/JuanFernando06" target="_blank" rel="noopener" class="rounded-lg border border-teal-600 px-5 py-3 font-semibold text-teal-700 transition duration-200 hover:bg-teal-50 focus:outline-none focus:ring-2 focus:ring-teal-500 dark:border-teal-400 dark:text-teal-300 dark:hover:bg-teal-900/30">GitHub</a><a href="https://www.linkedin.com/in/juan-fernando" target="_blank" rel="noopener" class="rounded-lg border border-teal-600 px-5 py-3 font-semibold text-teal-700 transition duration-200 hover:bg-teal-50 focus:outline-none focus:ring-2 focus:ring-teal-500 dark:border-teal-400 dark:text-teal-300 dark:hover:bg-teal-900/30">LinkedIn</a><a href="tel:+34648687611" class="rounded-lg border border-teal-600 px-5 py-3 font-semibold text-teal-700 transition duration-200 hover:bg-teal-50 focus:outline-none focus:ring-2 focus:ring-teal-500 dark:border-teal-400 dark:text-teal-300 dark:hover:bg-teal-900/30">Teléfono</a></div><p class="mt-6 text-sm text-slate-500 dark:text-slate-400">Murcia, España · (+34) 648 687 611</p></div></section>
+  </main>
+
+  <footer class="border-t border-slate-200 py-8 text-center text-sm text-slate-500 dark:border-slate-800 dark:text-slate-400">© <span id="year"></span> Juan Fernando García Torrente — Hecho con HTML, Tailwind y JS.</footer>
+
+  <div id="image-lightbox" class="fixed inset-0 z-[100] hidden items-center justify-center bg-slate-950/90 p-4" role="dialog" aria-modal="true" aria-labelledby="lightbox-title" aria-hidden="true" tabindex="-1">
+    <div class="relative flex max-h-full max-w-6xl flex-col items-center gap-4">
+      <h2 id="lightbox-title" class="sr-only">Vista ampliada de la imagen</h2>
+      <img id="lightbox-image" src="" alt="" class="max-h-[78vh] max-w-[90vw] rounded-lg object-contain shadow-2xl">
+      <p id="lightbox-counter" class="text-sm text-slate-200"></p>
+      <button id="lightbox-close" type="button" aria-label="Cerrar imagen" class="absolute -right-2 -top-12 rounded-full bg-white/10 px-3 py-1 text-2xl leading-none text-white transition duration-200 hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-teal-500">×</button>
+      <button id="lightbox-prev" type="button" aria-label="Imagen anterior" class="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-white/10 px-4 py-2 text-3xl text-white transition duration-200 hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-teal-500">‹</button>
+      <button id="lightbox-next" type="button" aria-label="Imagen siguiente" class="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-white/10 px-4 py-2 text-3xl text-white transition duration-200 hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-teal-500">›</button>
+    </div>
+  </div>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    themeToggle.addEventListener('click', () => {
+      const isDark = document.documentElement.classList.toggle('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const lightbox = document.getElementById('image-lightbox');
+    const lightboxImage = document.getElementById('lightbox-image');
+    const lightboxCounter = document.getElementById('lightbox-counter');
+    const closeLightbox = document.getElementById('lightbox-close');
+    const previousImage = document.getElementById('lightbox-prev');
+    const nextImage = document.getElementById('lightbox-next');
+    let activeGallery = [];
+    let activeImageIndex = 0;
+
+    function showLightboxImage() {
+      const image = activeGallery[activeImageIndex];
+      lightboxImage.src = image.currentSrc || image.src;
+      lightboxImage.alt = image.alt;
+      lightboxCounter.textContent = `${activeImageIndex + 1} / ${activeGallery.length}`;
+    }
+
+    function openLightbox(image) {
+      activeGallery = [...image.closest('article').querySelectorAll('img')];
+      activeImageIndex = activeGallery.indexOf(image);
+      showLightboxImage();
+      lightbox.classList.remove('hidden');
+      lightbox.classList.add('flex');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('overflow-hidden');
+      closeLightbox.focus();
+    }
+
+    function hideLightbox() {
+      lightbox.classList.add('hidden');
+      lightbox.classList.remove('flex');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    function moveLightbox(step) {
+      activeImageIndex = (activeImageIndex + step + activeGallery.length) % activeGallery.length;
+      showLightboxImage();
+    }
+
+    document.querySelectorAll('#proyectos article img').forEach((image) => {
+      image.classList.add('cursor-zoom-in', 'transition', 'duration-200', 'hover:opacity-90');
+      image.setAttribute('role', 'button');
+      image.setAttribute('tabindex', '0');
+      image.setAttribute('aria-label', `Ampliar ${image.alt}`);
+      image.addEventListener('click', () => openLightbox(image));
+      image.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          openLightbox(image);
+        }
+      });
+    });
+
+    closeLightbox.addEventListener('click', hideLightbox);
+    previousImage.addEventListener('click', () => moveLightbox(-1));
+    nextImage.addEventListener('click', () => moveLightbox(1));
+    lightbox.addEventListener('click', (event) => {
+      if (event.target === lightbox) hideLightbox();
+    });
+    document.addEventListener('keydown', (event) => {
+      if (lightbox.getAttribute('aria-hidden') === 'true') return;
+      if (event.key === 'Escape') hideLightbox();
+      if (event.key === 'ArrowLeft') moveLightbox(-1);
+      if (event.key === 'ArrowRight') moveLightbox(1);
+    });
+  </script>
+</body>
+</html>

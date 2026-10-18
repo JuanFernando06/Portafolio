@@ -1,0 +1,32 @@
+portfolio/
+├── index.html
+├── README.md
+└── assets/
+    ├── foto-perfil.jpg
+    ├── cv.pdf
+    ├── scanner-1.png
+    ├── flutter-1-1.png
+    ├── flutter-2-1.png
+    ├── pzukko-player-1.jpeg
+    ├── pzukko-player-2.jpeg
+    ├── pzukko-player-3.jpeg
+    ├── pzukko-player-4.jpeg
+    ├── pzukko-player-5.jpeg
+    ├── pzukko-player-6.jpeg
+    ├── pzukko-tip-1.jpeg
+    ├── pzukko-tip-2.jpeg
+    ├── pzukko-tip-3.jpeg
+    ├── pzukko-tip-4.jpeg
+    ├── pzukko-tip-5.jpeg
+    ├── pzukko-tip-6.jpeg
+    ├── pzukko-tip-7.jpeg
+    ├── pzukko-tip-8.jpeg
+    ├── nutrizukko-1.png
+    ├── nutrizukko-2.png
+    ├── nutrizukko-3.png
+    ├── nutrizukko-4.png
+    ├── nutrizukko-5.png
+    ├── nutrizukko-6.png
+    ├── nutrizukko-7.png
+    ├── nutrizukko-8.png
+    └── nutrizukko-9.png
