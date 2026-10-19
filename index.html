@@ -39,7 +39,7 @@
 
   <main>
     <section id="hero" class="mx-auto flex min-h-[70vh] max-w-6xl items-center px-4 py-20 sm:px-6 lg:px-8">
-      <div class="grid w-full items-center gap-10 md:grid-cols-[1fr_auto]">
+      <div class="grid w-full items-center gap-10 md:grid-cols-2">
         <div>
           <p class="mb-3 font-semibold text-teal-600 dark:text-teal-400">Murcia, España</p>
           <h1 class="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl dark:text-white">Hola, soy Juan Fernando</h1>
@@ -51,7 +51,12 @@
             <a href="mailto:juanfernandogt06@gmail.com" class="rounded-lg border border-slate-300 px-5 py-3 font-semibold text-slate-700 transition duration-200 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 dark:border-slate-600 dark:text-slate-200 dark:hover:bg-slate-800 dark:focus:ring-offset-slate-900">Contacto</a>
           </div>
         </div>
-        <img src="assets/foto-perfil.jpg" alt="Foto de perfil de Juan Fernando García Torrente" class="h-28 w-28 rounded-full object-cover ring-4 ring-teal-500/30 md:h-40 md:w-40" onerror="this.style.display='none'">
+        <div class="relative mx-auto w-full max-w-xs sm:max-w-sm md:justify-self-end">
+          <div class="absolute inset-0 translate-x-3 translate-y-3 rounded-2xl border-2 border-teal-500/50" aria-hidden="true"></div>
+          <div class="relative rounded-2xl border-4 border-teal-600 bg-white p-2 shadow-xl dark:border-teal-400 dark:bg-slate-800">
+            <img src="assets/portada.jpeg" alt="Foto de portada de Juan Fernando García Torrente" class="aspect-[3/4] w-full rounded-xl object-cover" onerror="this.closest('.relative').style.display='none'">
+          </div>
+        </div>
       </div>
     </section>
 
