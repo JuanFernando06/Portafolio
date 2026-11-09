@@ -169,8 +169,13 @@
         </article>
 
         <article class="mb-20">
-          <div class="flex flex-col gap-8 lg:flex-row">
-            <div class="gallery min-w-0 lg:w-1/2" data-gallery>
+          <!--
+            ZukkoNutri usa un flujo con float porque su descripción es más larga:
+            el texto comienza a la derecha de la galería y, cuando supera su altura,
+            continúa desde el extremo izquierdo ocupando todo el ancho disponible.
+          -->
+          <div class="block">
+            <div class="gallery mb-6 min-w-0 lg:float-left lg:mb-4 lg:mr-8 lg:w-1/2" data-gallery>
               <div class="relative">
                 <div data-track class="no-scrollbar flex snap-x snap-mandatory overflow-x-auto scroll-smooth rounded-xl border border-slate-200 bg-slate-100 dark:border-slate-700 dark:bg-slate-800"><div class="flex aspect-video w-full shrink-0 snap-center items-center justify-center"><img src="assets/nutrizukko/nutrizukko-1.webp" alt="Captura de NutriZukko" loading="lazy" draggable="false" class="h-full w-full object-contain"></div><div class="flex aspect-video w-full shrink-0 snap-center items-center justify-center"><img src="assets/nutrizukko/nutrizukko-2.webp" alt="Captura de NutriZukko" loading="lazy" draggable="false" class="h-full w-full object-contain"></div><div class="flex aspect-video w-full shrink-0 snap-center items-center justify-center"><img src="assets/nutrizukko/nutrizukko-3.webp" alt="Captura de NutriZukko" loading="lazy" draggable="false" class="h-full w-full object-contain"></div><div class="flex aspect-video w-full shrink-0 snap-center items-center justify-center"><img src="assets/nutrizukko/nutrizukko-4.webp" alt="Captura de NutriZukko" loading="lazy" draggable="false" class="h-full w-full object-contain"></div><div class="flex aspect-video w-full shrink-0 snap-center items-center justify-center"><img src="assets/nutrizukko/nutrizukko-5.webp" alt="Captura de NutriZukko" loading="lazy" draggable="false" class="h-full w-full object-contain"></div><div class="flex aspect-video w-full shrink-0 snap-center items-center justify-center"><img src="assets/nutrizukko/nutrizukko-6.webp" alt="Captura de NutriZukko" loading="lazy" draggable="false" class="h-full w-full object-contain"></div><div class="flex aspect-video w-full shrink-0 snap-center items-center justify-center"><img src="assets/nutrizukko/nutrizukko-7.webp" alt="Captura de NutriZukko" loading="lazy" draggable="false" class="h-full w-full object-contain"></div><div class="flex aspect-video w-full shrink-0 snap-center items-center justify-center"><img src="assets/nutrizukko/nutrizukko-8.webp" alt="Captura de NutriZukko" loading="lazy" draggable="false" class="h-full w-full object-contain"></div><div class="flex aspect-video w-full shrink-0 snap-center items-center justify-center"><img src="assets/nutrizukko/nutrizukko-9.webp" alt="Captura de NutriZukko" loading="lazy" draggable="false" class="h-full w-full object-contain"></div></div>
                 <button type="button" data-prev aria-label="Imagen anterior" class="absolute top-1/2 -translate-y-1/2 rounded-full bg-slate-900/60 px-3 py-1 text-2xl leading-none text-white backdrop-blur transition duration-200 hover:bg-slate-900/80 focus:outline-none focus:ring-2 focus:ring-teal-500 left-2">‹</button>
@@ -179,21 +184,39 @@
               </div>
               <div class="no-scrollbar relative mt-3 flex gap-2 overflow-x-auto pb-1"><button type="button" data-thumb="0" aria-label="Ver imagen 1" class="shrink-0 overflow-hidden rounded-lg border-2 border-transparent opacity-60 transition duration-200 hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-teal-500"><img src="assets/nutrizukko/nutrizukko-1.webp" alt="" loading="lazy" class="h-14 w-24 bg-slate-100 object-cover dark:bg-slate-800"></button><button type="button" data-thumb="1" aria-label="Ver imagen 2" class="shrink-0 overflow-hidden rounded-lg border-2 border-transparent opacity-60 transition duration-200 hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-teal-500"><img src="assets/nutrizukko/nutrizukko-2.webp" alt="" loading="lazy" class="h-14 w-24 bg-slate-100 object-cover dark:bg-slate-800"></button><button type="button" data-thumb="2" aria-label="Ver imagen 3" class="shrink-0 overflow-hidden rounded-lg border-2 border-transparent opacity-60 transition duration-200 hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-teal-500"><img src="assets/nutrizukko/nutrizukko-3.webp" alt="" loading="lazy" class="h-14 w-24 bg-slate-100 object-cover dark:bg-slate-800"></button><button type="button" data-thumb="3" aria-label="Ver imagen 4" class="shrink-0 overflow-hidden rounded-lg border-2 border-transparent opacity-60 transition duration-200 hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-teal-500"><img src="assets/nutrizukko/nutrizukko-4.webp" alt="" loading="lazy" class="h-14 w-24 bg-slate-100 object-cover dark:bg-slate-800"></button><button type="button" data-thumb="4" aria-label="Ver imagen 5" class="shrink-0 overflow-hidden rounded-lg border-2 border-transparent opacity-60 transition duration-200 hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-teal-500"><img src="assets/nutrizukko/nutrizukko-5.webp" alt="" loading="lazy" class="h-14 w-24 bg-slate-100 object-cover dark:bg-slate-800"></button><button type="button" data-thumb="5" aria-label="Ver imagen 6" class="shrink-0 overflow-hidden rounded-lg border-2 border-transparent opacity-60 transition duration-200 hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-teal-500"><img src="assets/nutrizukko/nutrizukko-6.webp" alt="" loading="lazy" class="h-14 w-24 bg-slate-100 object-cover dark:bg-slate-800"></button><button type="button" data-thumb="6" aria-label="Ver imagen 7" class="shrink-0 overflow-hidden rounded-lg border-2 border-transparent opacity-60 transition duration-200 hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-teal-500"><img src="assets/nutrizukko/nutrizukko-7.webp" alt="" loading="lazy" class="h-14 w-24 bg-slate-100 object-cover dark:bg-slate-800"></button><button type="button" data-thumb="7" aria-label="Ver imagen 8" class="shrink-0 overflow-hidden rounded-lg border-2 border-transparent opacity-60 transition duration-200 hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-teal-500"><img src="assets/nutrizukko/nutrizukko-8.webp" alt="" loading="lazy" class="h-14 w-24 bg-slate-100 object-cover dark:bg-slate-800"></button><button type="button" data-thumb="8" aria-label="Ver imagen 9" class="shrink-0 overflow-hidden rounded-lg border-2 border-transparent opacity-60 transition duration-200 hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-teal-500"><img src="assets/nutrizukko/nutrizukko-9.webp" alt="" loading="lazy" class="h-14 w-24 bg-slate-100 object-cover dark:bg-slate-800"></button></div>
             </div>
-            <div class="flex flex-col justify-center lg:w-1/2">
-              <div class="mb-2 flex items-center gap-3"><h3 class="text-xl font-bold text-slate-900 dark:text-white">ZukkoNutri</h3><span class="rounded-full bg-green-100 px-2 py-0.5 text-xs text-green-700 dark:bg-green-900/40 dark:text-green-300">En producción</span></div>
-              <p class="mb-4 text-slate-600 dark:text-slate-300">Aplicación web full-stack inspirada en el modelo de Yuka, creada para descubrir qué contienen realmente los alimentos y cosméticos, evaluar su impacto en la salud y organizar compras y rutinas de cuidado personal con información visual y accionable.</p>
-              <ul class="mb-5 list-disc space-y-2 pl-5 text-sm leading-6 text-slate-600 dark:text-slate-300">
-                <li>Autenticación con Supabase Auth y rutas privadas protegidas mediante middleware.</li>
-                <li>Búsqueda híbrida por código de barras: caché local y APIs de Open Food Facts y Open Beauty Facts.</li>
-                <li>Análisis de alimentos con Nutri-Score y detección automática de aditivos E-numbers.</li>
-                <li>Algoritmo propio en TypeScript para puntuar cosméticos según sus ingredientes INCI.</li>
-                <li>Historial, favoritos, colecciones personalizadas, buscador y catálogo comunitario con filtros.</li>
-              </ul>
-              <div class="mb-5 flex flex-wrap gap-2"><span class="rounded bg-slate-100 px-2.5 py-1 text-xs font-medium dark:bg-slate-800">Next.js 15</span><span class="rounded bg-slate-100 px-2.5 py-1 text-xs font-medium dark:bg-slate-800">React 19</span><span class="rounded bg-slate-100 px-2.5 py-1 text-xs font-medium dark:bg-slate-800">Tailwind CSS</span><span class="rounded bg-slate-100 px-2.5 py-1 text-xs font-medium dark:bg-slate-800">Supabase</span><span class="rounded bg-slate-100 px-2.5 py-1 text-xs font-medium dark:bg-slate-800">PostgreSQL</span><span class="rounded bg-slate-100 px-2.5 py-1 text-xs font-medium dark:bg-slate-800">Vercel</span></div>
-              <!-- TODO: Añade el enlace público de NutriZukko cuando esté disponible. -->
-              <p class="text-sm italic text-slate-400"> <a href="https://zukkonutri.vercel.app/">ZukkoNutri</a></p>
-            </div>
+              <div class="mb-2 flex items-center gap-3">
+    <h3 class="text-xl font-bold text-slate-900 dark:text-white">ZukkoNutri</h3>
+    <span class="rounded-full bg-green-100 px-2 py-0.5 text-xs text-green-700 dark:bg-green-900/40 dark:text-green-300">En producción</span>
+    <span class="rounded-full bg-blue-100 px-2 py-0.5 text-xs text-blue-700 dark:bg-blue-900/40 dark:text-blue-300">PWA</span>
+  </div>
+  
+  <p class="mb-4 text-slate-600 dark:text-slate-300">
+    Aplicación web full-stack (PWA) inspirada en el modelo de Yuka, creada para descubrir qué contienen realmente los alimentos y cosméticos, evaluar su impacto en la salud y organizar compras y rutinas de cuidado personal con información visual y accionable.
+  </p>
+  
+  <ul class="mb-5 list-disc space-y-2 pl-5 text-sm leading-6 text-slate-600 dark:text-slate-300">
+    <li><strong>Escáner inteligente y OCR:</strong> Lectura de códigos de barras por cámara y extracción de datos de etiquetas mediante IA (Groq Llama 3 Vision) con recorte y compresión de imágenes en el navegador.</li>
+    <li><strong>Análisis profundo (Estilo Yuka):</strong> Algoritmo propio en TypeScript que evalúa la peligrosidad de ingredientes INCI y aditivos alimentarios (sistema de penalización y topes de nota), con extracción de funciones y descripciones.</li>
+    <li><strong>Base de datos enriquecida:</strong> Catálogo propio con más de 425 aditivos (E-numbers) y 150 ingredientes cosméticos clasificados por riesgo, con auto-aprendizaje para nuevos ingredientes.</li>
+    <li><strong>Panel de Administración (CMS):</strong> Gestión de productos, moderación de reportes de usuarios, aprobación de aditivos y <em>Audit Logs</em> para registrar quién modifica cada dato.</li>
+    <li><strong>Backend robusto:</strong> Supabase Auth (con recuperación de contraseña vía SMTP), rutas protegidas, RLS (Row Level Security) y normalización de datos complejos (ej. aguas minerales).</li>
+    <li><strong>UX/UI Avanzada:</strong> Modo oscuro optimizado para accesibilidad, diseño responsive, instalable en móviles (PWA) y analíticas de tráfico con Vercel.</li>
+  </ul>
+  
+  <div class="mb-5 flex flex-wrap gap-2">
+    <span class="rounded bg-slate-100 px-2.5 py-1 text-xs font-medium dark:bg-slate-800">Next.js 15</span>
+    <span class="rounded bg-slate-100 px-2.5 py-1 text-xs font-medium dark:bg-slate-800">React 19</span>
+    <span class="rounded bg-slate-100 px-2.5 py-1 text-xs font-medium dark:bg-slate-800">Tailwind CSS 4</span>
+    <span class="rounded bg-slate-100 px-2.5 py-1 text-xs font-medium dark:bg-slate-800">Supabase</span>
+    <span class="rounded bg-slate-100 px-2.5 py-1 text-xs font-medium dark:bg-slate-800">PostgreSQL</span>
+    <span class="rounded bg-slate-100 px-2.5 py-1 text-xs font-medium dark:bg-slate-800">Groq AI (Llama 3)</span>
+    <span class="rounded bg-slate-100 px-2.5 py-1 text-xs font-medium dark:bg-slate-800">Vercel</span>
+  </div>
+  
+  <p class="text-sm italic text-slate-400">
+    <a href="https://zukkonutri.vercel.app/" target="_blank" rel="noopener noreferrer" class="hover:text-green-600 transition-colors">🌐 Visitar ZukkoNutri en vivo</a></p>
           </div>
+          <div class="clear-both" aria-hidden="true"></div>
         </article>
 
 
