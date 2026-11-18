@@ -10,6 +10,8 @@ function initGalleries() {
     const thumbs = [...gallery.querySelectorAll('[data-thumb]')];
     const count = gallery.querySelector('[data-count]');
     let current = 0;
+    // posición de scroll que deja el slide i centrado (sirve para 1 slide a ancho completo o varios verticales)
+    const slideLeft = (i) => slides[i].offsetLeft - (track.clientWidth - slides[i].clientWidth) / 2;
 
     function setActive(index, scrollThumbs = true) {
       current = index;
@@ -23,7 +25,7 @@ function initGalleries() {
     }
     function goTo(index) {
       const i = (index + slides.length) % slides.length;
-      track.scrollTo({ left: i * track.clientWidth, behavior: 'smooth' });
+      track.scrollTo({ left: slideLeft(i), behavior: 'smooth' });
       setActive(i);
     }
     let ticking = false;
@@ -32,14 +34,16 @@ function initGalleries() {
       ticking = true;
       requestAnimationFrame(() => {
         ticking = false;
-        const i = Math.round(track.scrollLeft / track.clientWidth);
-        if (i !== current && i >= 0 && i < slides.length) setActive(i);
+        const mid = track.scrollLeft + track.clientWidth / 2;
+        let i = 0, best = Infinity;
+        slides.forEach((s, n) => { const d = Math.abs(s.offsetLeft + s.clientWidth / 2 - mid); if (d < best) { best = d; i = n; } });
+        if (i !== current) setActive(i);
       });
     });
     gallery.querySelector('[data-prev]').addEventListener('click', () => goTo(current - 1));
     gallery.querySelector('[data-next]').addEventListener('click', () => goTo(current + 1));
     thumbs.forEach((t, i) => t.addEventListener('click', () => goTo(i)));
-    window.addEventListener('resize', () => track.scrollTo({ left: current * track.clientWidth }));
+    window.addEventListener('resize', () => track.scrollTo({ left: slideLeft(current) }));
     setActive(0, false);
   });
 }

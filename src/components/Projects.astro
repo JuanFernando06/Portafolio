@@ -4,9 +4,14 @@ import { PROJECTS } from '../data/projects';
 <div id="projects-list" class="reveal" style="margin-top:1.6rem">
   {PROJECTS.map((p) => (
     <article class="proj" data-kind={p.kind} id={`proj-${p.id}`}>
+      <div class="proj-head">
+        <h3>{p.title}</h3>
+        {p.badges.map((b) => <span class={`badge ${b.c}`}>{b.t}</span>)}
+      </div>
+      <p class="lead" style="font-size:.93rem">{p.desc}</p>
       <div class="proj-media" data-gallery>
         <div style="position:relative">
-          <div class="gtrack no-scrollbar" data-track style={`--gh:${p.height}`}>
+          <div class={`gtrack no-scrollbar${p.kind === 'app' ? ' is-app' : ''}`} data-track style={`--gh:${p.height}`}>
             {p.images.map((src, i) => (
               <div class="gslide"><img src={src} alt={`${p.title} — captura ${i + 1}`} loading="lazy" draggable="false" /></div>
             ))}
@@ -21,11 +26,6 @@ import { PROJECTS } from '../data/projects';
           ))}
         </div>
       </div>
-      <div class="proj-head">
-        <h3>{p.title}</h3>
-        {p.badges.map((b) => <span class={`badge ${b.c}`}>{b.t}</span>)}
-      </div>
-      <p class="lead" style="font-size:.93rem">{p.desc}</p>
       <ul class="proj-list">{p.bullets.map((b) => <li set:html={b} />)}</ul>
       <div class="flex flex-wrap gap-2 mb-3">{p.stack.map((s) => <span class="chip">{s}</span>)}</div>
       {p.link
