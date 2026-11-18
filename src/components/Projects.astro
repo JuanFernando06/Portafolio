@@ -1,0 +1,36 @@
+---
+import { PROJECTS } from '../data/projects';
+---
+<div id="projects-list" class="reveal" style="margin-top:1.6rem">
+  {PROJECTS.map((p) => (
+    <article class="proj" data-kind={p.kind} id={`proj-${p.id}`}>
+      <div class="proj-media" data-gallery>
+        <div style="position:relative">
+          <div class="gtrack no-scrollbar" data-track style={`--gh:${p.height}`}>
+            {p.images.map((src, i) => (
+              <div class="gslide"><img src={src} alt={`${p.title} — captura ${i + 1}`} loading="lazy" draggable="false" /></div>
+            ))}
+          </div>
+          <button class="gnav gprev" data-prev aria-label="Imagen anterior">‹</button>
+          <button class="gnav gnext" data-next aria-label="Imagen siguiente">›</button>
+          <span class="gcount mono" data-count></span>
+        </div>
+        <div class="gthumbs no-scrollbar" data-thumbs>
+          {p.images.map((src, i) => (
+            <button data-thumb={i} aria-label={`Ver imagen ${i + 1}`}><img src={src} alt="" loading="lazy" /></button>
+          ))}
+        </div>
+      </div>
+      <div class="proj-head">
+        <h3>{p.title}</h3>
+        {p.badges.map((b) => <span class={`badge ${b.c}`}>{b.t}</span>)}
+      </div>
+      <p class="lead" style="font-size:.93rem">{p.desc}</p>
+      <ul class="proj-list">{p.bullets.map((b) => <li set:html={b} />)}</ul>
+      <div class="flex flex-wrap gap-2 mb-3">{p.stack.map((s) => <span class="chip">{s}</span>)}</div>
+      {p.link
+        ? <a href={p.link} target="_blank" rel="noopener noreferrer" class="btn btn-ghost" style="font-size:.82rem;padding:.55rem 1rem">{p.linkText}</a>
+        : <p class="mono" style="font-size:.72rem;color:#7d9a68">🔒 Proyecto privado / sin demo pública todavía</p>}
+    </article>
+  ))}
+</div>
