@@ -300,10 +300,10 @@ const title = '¡Feliz cumpleaños, Papaute!';
       const musicButton = document.querySelector('#music');
       const status = document.querySelector('#status');
       const fartSound = new Audio('/dry-fart.mp3');
+      const musicTrack = new Audio('/Harry%20Styles%20-%20Sign%20of%20the%20Times%20(Official%20Video).mp3');
       const colors = ['#ff8db8', '#ffd46f', '#a9e8d2', '#b995ff', '#fff4d2'];
-      let audioContext;
-      let masterGain;
-      let oscillators = [];
+      musicTrack.loop = true;
+      musicTrack.preload = 'none';
 
       wishButton.addEventListener('click', () => {
         fartSound.pause();
@@ -329,45 +329,20 @@ const title = '¡Feliz cumpleaños, Papaute!';
 
       musicButton.addEventListener('click', async () => {
         if (musicButton.getAttribute('aria-pressed') === 'true') {
-          await audioContext.suspend();
-          masterGain.gain.value = 0;
+          musicTrack.pause();
           musicButton.setAttribute('aria-pressed', 'false');
           musicButton.textContent = '♫ Poner música';
           status.textContent = 'Música pausada.';
           return;
         }
 
-        const AudioContextClass = window.AudioContext;
-        if (!AudioContextClass) {
-          status.textContent = 'Este navegador no permite reproducir música.';
-          return;
-        }
-
         try {
-          audioContext = audioContext || new AudioContextClass();
-          await audioContext.resume();
-          if (!masterGain) {
-            masterGain = audioContext.createGain();
-            masterGain.gain.value = .035;
-            masterGain.connect(audioContext.destination);
-            [130.81, 164.81, 196, 261.63].forEach((frequency, index) => {
-              const oscillator = audioContext.createOscillator();
-              const gain = audioContext.createGain();
-              oscillator.type = index === 3 ? 'sine' : 'triangle';
-              oscillator.frequency.value = frequency;
-              gain.gain.value = index === 3 ? .14 : .1;
-              oscillator.connect(gain);
-              gain.connect(masterGain);
-              oscillator.start();
-              oscillators.push(oscillator);
-            });
-          }
-          masterGain.gain.value = .035;
+          await musicTrack.play();
           musicButton.setAttribute('aria-pressed', 'true');
           musicButton.textContent = '♫ Silenciar música';
-          status.textContent = 'Música original activada.';
+          status.textContent = 'Música activada.';
         } catch {
-          status.textContent = 'No se pudo iniciar la música. Inténtalo de nuevo.';
+          status.textContent = 'No se pudo reproducir la canción. Inténtalo de nuevo.';
         }
       });
     </script>
