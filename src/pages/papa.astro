@@ -13,8 +13,8 @@ const title = 'Feliz cumpleaños Papaute';
       :root {
         color-scheme: dark;
         font-family: system-ui, sans-serif;
-        background: #17130f;
-        color: #fff3df;
+        background: #171325;
+        color: #fff3f7;
         font-synthesis: none;
         text-rendering: optimizeLegibility;
         -webkit-font-smoothing: antialiased;
@@ -28,8 +28,8 @@ const title = 'Feliz cumpleaños Papaute';
         margin: 0;
         overflow-x: hidden;
         background:
-          radial-gradient(ellipse at 50% 0%, #493322 0%, transparent 52%),
-          linear-gradient(160deg, #211a14, #100e0c 72%);
+          radial-gradient(ellipse at 50% 0%, #39203c 0%, transparent 54%),
+          linear-gradient(160deg, #21192c, #100f1b 72%);
       }
 
       main {
@@ -41,7 +41,7 @@ const title = 'Feliz cumpleaños Papaute';
 
       .eyebrow {
         margin: 0 0 .8rem;
-        color: #f5b04c;
+        color: #ffb1cb;
         font: 700 .72rem/1.4 ui-monospace, monospace;
         letter-spacing: .24em;
         text-transform: uppercase;
@@ -49,31 +49,31 @@ const title = 'Feliz cumpleaños Papaute';
 
       h1 {
         margin: 0;
-        color: #fff3df;
+        color: #fff3f7;
         font-size: clamp(2.4rem, 8vw, 5.7rem);
         line-height: .98;
         letter-spacing: -.065em;
         text-wrap: balance;
-        text-shadow: 0 5px 35px #f3983740;
+        text-shadow: 0 5px 35px #f36a9940;
       }
 
       h1 span {
         display: block;
-        color: #ffb84d;
+        color: #ffb4cc;
       }
 
       .intro {
         margin: 1rem auto 1.8rem;
-        color: #cbbba6;
+        color: #c8bbd5;
         font-size: clamp(.95rem, 2vw, 1.08rem);
       }
 
       .scene {
         position: relative;
         overflow: hidden;
-        border: 1px solid #f5b04c48;
+        border: 1px solid #f39aba40;
         border-radius: 1.2rem;
-        background: #100f0de8;
+        background: #13101be8;
         box-shadow: 0 30px 100px #0008, inset 0 1px #fff2;
       }
 
@@ -83,14 +83,15 @@ const title = 'Feliz cumpleaños Papaute';
         inset: 0;
         pointer-events: none;
         content: "";
-        background: repeating-linear-gradient(0deg, #ffffff08 0 1px, transparent 1px 4px);
-        opacity: .24;
+        background: radial-gradient(#ffffff16 .7px, transparent .7px);
+        background-size: 7px 7px;
+        opacity: .12;
       }
 
       canvas {
         display: block;
         width: 100%;
-        height: clamp(340px, 56vw, 570px);
+        height: clamp(390px, 58vw, 620px);
         cursor: crosshair;
         touch-action: manipulation;
       }
@@ -98,13 +99,15 @@ const title = 'Feliz cumpleaños Papaute';
       .scene-label {
         position: absolute;
         z-index: 2;
-        top: .8rem;
-        left: 1rem;
-        color: #ffe1ae;
+        bottom: .9rem;
+        left: 50%;
+        transform: translateX(-50%);
+        color: #f6c2d5;
         font: 600 .68rem/1 ui-monospace, monospace;
         letter-spacing: .14em;
         text-transform: uppercase;
-        opacity: .72;
+        opacity: .78;
+        white-space: nowrap;
         pointer-events: none;
       }
 
@@ -119,10 +122,10 @@ const title = 'Feliz cumpleaños Papaute';
       button {
         min-height: 46px;
         padding: .7rem 1.15rem;
-        border: 1px solid #ffbd6870;
+        border: 1px solid #ff9fbd70;
         border-radius: 999px;
-        background: #f5a6401c;
-        color: #fff3df;
+        background: #f16d9820;
+        color: #fff3f7;
         font: 650 .9rem/1.2 system-ui, sans-serif;
         cursor: pointer;
         transition: transform .2s ease, background .2s ease, border-color .2s ease;
@@ -130,8 +133,8 @@ const title = 'Feliz cumpleaños Papaute';
 
       button:hover {
         transform: translateY(-2px);
-        border-color: #ffbd68;
-        background: #f5a64035;
+        border-color: #ff9fbd;
+        background: #f16d9838;
       }
 
       button:focus-visible, canvas:focus-visible {
@@ -147,7 +150,7 @@ const title = 'Feliz cumpleaños Papaute';
       .hint, #audio-status {
         min-height: 1.4em;
         margin: .55rem 0 0;
-        color: #b6a58f;
+        color: #c2b5d0;
         font-size: .82rem;
       }
 
@@ -155,7 +158,7 @@ const title = 'Feliz cumpleaños Papaute';
         padding: .12rem .35rem;
         border: 1px solid #ffffff30;
         border-radius: .3rem;
-        color: #f3d9b4;
+        color: #f3d9e3;
         font: inherit;
       }
 
@@ -169,25 +172,27 @@ const title = 'Feliz cumpleaños Papaute';
   </head>
   <body>
     <main>
-      <p class="eyebrow">Jefe de obra · Leyenda del pladur</p>
+      <p class="eyebrow">La obra más bonita de todas</p>
       <h1>Feliz cumpleaños <span>Papaute</span></h1>
-      <p class="intro">Hoy se aparcan las herramientas... ¡y se celebra por todo lo alto!</p>
+      <p class="intro">Cinco corazones, una familia y un montón de amor para celebrar a papá.</p>
 
       <div class="scene">
-        <span class="scene-label" aria-hidden="true">Obra maestra · Edición cumple</span>
+        <span class="scene-label" aria-hidden="true">Una familia construida con amor</span>
         <canvas
           id="workshop"
           role="img"
-          aria-label="Animación ASCII de un pladurista con cutter, metro, lápices y herramientas. Pulsa o haz clic para lanzar confeti."
+          aria-label="Un corazón luminoso que gira alrededor de Elena, Adrián, papá con corona, mamá y Juan. Pulsa o haz clic para lanzar destellos."
           tabindex="0"
         ></canvas>
       </div>
 
       <div class="controls">
-        <button id="party" type="button">¡Que empiece la fiesta! 🎉</button>
-        <button id="sound" class="sound-button" type="button" aria-pressed="false">♫ Activar ambiente</button>
+        <button id="party" type="button">¡Lluvia de amor! ✨</button>
+        <button id="sound" class="sound-button" type="button" aria-pressed="false">♫ Poner música</button>
       </div>
-      <p class="hint">Haz clic en la obra o pulsa <kbd>Enter</kbd> para lanzar confeti.</p>
+      <p class="hint">Toca el corazón o pulsa <kbd>Enter</kbd> para llenarlo de destellos.</p>
+      <p class="hint">Mamá es la más alta; Juan mide 10 cm más que Papá.</p>
+      <p class="hint">La mejor obra de tu vida es esta familia. ¡Te queremos, Papá!</p>
       <p id="audio-status" role="status" aria-live="polite"></p>
     </main>
 
@@ -198,12 +203,8 @@ const title = 'Feliz cumpleaños Papaute';
       const soundButton = document.querySelector('#sound');
       const audioStatus = document.querySelector('#audio-status');
       const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-      const palette = ['#ffbd68', '#8ae6ce', '#f28c72', '#d2a4ff', '#fff3df'];
+      const palette = ['#ffb1cb', '#ffcf83', '#a8eadf', '#d6b3ff', '#fff3f7'];
       const particles = [];
-      let columns = 80;
-      let rows = 30;
-      let cellWidth = 10;
-      let cellHeight = 18;
       let frame = 0;
       let celebrationUntil = 0;
       let audioContext;
@@ -217,122 +218,265 @@ const title = 'Feliz cumpleaños Papaute';
         canvas.width = Math.round(bounds.width * pixelRatio);
         canvas.height = Math.round(bounds.height * pixelRatio);
         context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
-        context.textBaseline = 'top';
-        cellWidth = Math.max(6, Math.min(12, bounds.width / 88));
-        cellHeight = cellWidth * 1.72;
-        columns = Math.floor(bounds.width / cellWidth);
-        rows = Math.floor(bounds.height / cellHeight);
       }
 
-      function write(text, x, y, color = '#fff3df', size = 1) {
-        context.fillStyle = color;
-        context.font = `700 ${cellWidth * size}px ui-monospace, "Courier New", monospace`;
-        context.fillText(text, x * cellWidth, y * cellHeight);
+      function heartPath() {
+        context.beginPath();
+        context.moveTo(0, -118);
+        context.bezierCurveTo(-132, -260, -362, -178, 0, 188);
+        context.bezierCurveTo(362, -178, 132, -260, 0, -118);
+        context.closePath();
       }
 
-      function centered(text, y, color, size = 1) {
-        const length = text.length * size;
-        write(text, Math.max(0, (columns - length) / 2), y, color, size);
-      }
-
-      function celebrate(x = Math.random() * columns, y = Math.random() * rows * .55) {
+      function celebrate(x, y) {
         celebrationUntil = performance.now() + 1800;
         for (let i = 0; i < 48; i += 1) {
           const angle = Math.random() * Math.PI * 2;
           const speed = .12 + Math.random() * .28;
           particles.push({
-            x, y, vx: Math.cos(angle) * speed, vy: Math.sin(angle) * speed - .12,
-            life: 45 + Math.random() * 35, char: ['*', '+', '.', '✦'][Math.floor(Math.random() * 4)],
+            x, y, vx: Math.cos(angle) * speed * 7, vy: Math.sin(angle) * speed * 7 - 1.5,
+            life: 45 + Math.random() * 35, size: 2 + Math.random() * 4,
             color: palette[Math.floor(Math.random() * palette.length)],
           });
         }
       }
 
+      function drawPerson(x, ground, unit, person, time) {
+        const height = unit * person.height;
+        const top = ground - height;
+        const headRadius = unit * person.head;
+        const headY = top + headRadius + unit * .12;
+        const shoulderY = headY + headRadius + unit * .08;
+        const waistY = ground - unit * .92;
+        const bodyWidth = unit * person.width;
+        const bob = Math.sin(time / 420 + person.phase) * unit * .018;
+
+        context.save();
+        context.translate(0, bob);
+        context.fillStyle = '#08071348';
+        context.beginPath();
+        context.ellipse(x, ground + unit * .04, bodyWidth * .95, unit * .1, 0, 0, Math.PI * 2);
+        context.fill();
+
+        context.lineCap = 'round';
+        context.lineJoin = 'round';
+        context.strokeStyle = person.pants;
+        context.lineWidth = unit * .2;
+        context.beginPath();
+        context.moveTo(x - bodyWidth * .2, waistY);
+        context.lineTo(x - bodyWidth * .25, ground - unit * .16);
+        context.moveTo(x + bodyWidth * .2, waistY);
+        context.lineTo(x + bodyWidth * .25, ground - unit * .16);
+        context.stroke();
+        context.fillStyle = person.shoes;
+        context.beginPath();
+        context.ellipse(x - bodyWidth * .34, ground - unit * .1, unit * .2, unit * .09, -.12, 0, Math.PI * 2);
+        context.ellipse(x + bodyWidth * .34, ground - unit * .1, unit * .2, unit * .09, .12, 0, Math.PI * 2);
+        context.fill();
+
+        context.fillStyle = person.clothes;
+        context.beginPath();
+        context.roundRect(x - bodyWidth * .5, shoulderY, bodyWidth, waistY - shoulderY, unit * .22);
+        context.fill();
+        context.fillStyle = person.accent;
+        context.fillRect(x - unit * .035, shoulderY + unit * .08, unit * .07, waistY - shoulderY - unit * .16);
+
+        context.strokeStyle = person.skin;
+        context.lineWidth = unit * .14;
+        context.beginPath();
+        context.moveTo(x - bodyWidth * .43, shoulderY + unit * .12);
+        context.lineTo(x - bodyWidth * .75, shoulderY + unit * .6);
+        context.lineTo(x - bodyWidth * .48, waistY - unit * .05);
+        context.moveTo(x + bodyWidth * .43, shoulderY + unit * .12);
+        context.lineTo(x + bodyWidth * .73, shoulderY + unit * .56 + Math.sin(time / 300 + person.phase) * unit * .1);
+        context.lineTo(x + bodyWidth * .48, waistY - unit * .05);
+        context.stroke();
+        context.fillStyle = person.accent;
+        context.beginPath();
+        context.arc(x - bodyWidth * .48, waistY - unit * .05, unit * .08, 0, Math.PI * 2);
+        context.arc(x + bodyWidth * .48, waistY - unit * .05, unit * .08, 0, Math.PI * 2);
+        context.fill();
+
+        context.fillStyle = person.skin;
+        context.beginPath();
+        context.roundRect(x - unit * .105, headY + headRadius * .72, unit * .21, unit * .28, unit * .06);
+        context.fill();
+        context.beginPath();
+        context.arc(x, headY, headRadius, 0, Math.PI * 2);
+        context.fill();
+
+        context.fillStyle = person.hair;
+        context.beginPath();
+        context.arc(x, headY - headRadius * .09, headRadius * 1.04, Math.PI, Math.PI * 2);
+        context.quadraticCurveTo(x + headRadius, headY + headRadius * .28, x + headRadius * .72, headY + headRadius * .58);
+        context.lineTo(x + headRadius * .56, headY + headRadius * .05);
+        context.lineTo(x, headY + headRadius * .22);
+        context.lineTo(x - headRadius * .58, headY + headRadius * .03);
+        context.lineTo(x - headRadius * .7, headY + headRadius * .56);
+        context.quadraticCurveTo(x - headRadius, headY + headRadius * .25, x - headRadius, headY);
+        context.fill();
+
+        context.fillStyle = '#332333';
+        context.beginPath();
+        context.arc(x - headRadius * .34, headY + headRadius * .04, Math.max(1.5, unit * .025), 0, Math.PI * 2);
+        context.arc(x + headRadius * .34, headY + headRadius * .04, Math.max(1.5, unit * .025), 0, Math.PI * 2);
+        context.fill();
+        context.strokeStyle = '#9b4e56';
+        context.lineWidth = Math.max(1.5, unit * .025);
+        context.beginPath();
+        context.arc(x, headY + headRadius * .2, headRadius * .28, .2, Math.PI - .2);
+        context.stroke();
+
+        if (person.beard) {
+          context.fillStyle = person.hair;
+          context.beginPath();
+          context.arc(x, headY + headRadius * .48, headRadius * .66, 0, Math.PI);
+          context.fill();
+          context.fillStyle = person.skin;
+          context.fillRect(x - headRadius * .42, headY + headRadius * .48, headRadius * .84, headRadius * .14);
+        }
+
+        if (person.crown) {
+          const crownY = headY - headRadius * 1.12;
+          context.shadowColor = '#ffd36e';
+          context.shadowBlur = unit * .16;
+          context.fillStyle = '#ffd36e';
+          context.beginPath();
+          context.moveTo(x - headRadius * .78, crownY + headRadius * .72);
+          context.lineTo(x - headRadius * .68, crownY);
+          context.lineTo(x - headRadius * .24, crownY + headRadius * .38);
+          context.lineTo(x, crownY - headRadius * .14);
+          context.lineTo(x + headRadius * .25, crownY + headRadius * .38);
+          context.lineTo(x + headRadius * .7, crownY);
+          context.lineTo(x + headRadius * .8, crownY + headRadius * .72);
+          context.closePath();
+          context.fill();
+          context.shadowBlur = 0;
+          context.fillStyle = '#fff5c9';
+          context.beginPath();
+          context.arc(x - headRadius * .5, crownY + headRadius * .34, unit * .035, 0, Math.PI * 2);
+          context.arc(x, crownY + headRadius * .15, unit * .035, 0, Math.PI * 2);
+          context.arc(x + headRadius * .5, crownY + headRadius * .34, unit * .035, 0, Math.PI * 2);
+          context.fill();
+        }
+
+        if (person.toolbelt) {
+          context.fillStyle = '#e0aa5a';
+          context.fillRect(x - bodyWidth * .48, waistY - unit * .08, bodyWidth * .96, unit * .12);
+          context.fillStyle = '#f6d17b';
+          context.beginPath();
+          context.roundRect(x + bodyWidth * .27, waistY - unit * .01, unit * .18, unit * .2, unit * .04);
+          context.fill();
+        }
+
+        context.restore();
+
+        context.fillStyle = '#fff4f8';
+        context.font = `700 ${Math.max(11, unit * .19)}px system-ui, sans-serif`;
+        context.textAlign = 'center';
+        context.fillText(person.name, x, ground + unit * .2);
+        context.fillStyle = '#d7c5df';
+        context.font = `500 ${Math.max(9, unit * .125)}px system-ui, sans-serif`;
+        context.fillText(person.role, x, ground + unit * .43);
+        context.textAlign = 'start';
+      }
+
+      const family = [
+        { name: 'Elena', role: 'hija', at: .21, height: 2.55, head: .27, width: .72, clothes: '#ec83ac', accent: '#ffd0de', pants: '#865889', skin: '#e9b18f', hair: '#573746', shoes: '#573746', phase: 0 },
+        { name: 'Adrián', role: 'hijo', at: .355, height: 2.85, head: .28, width: .76, clothes: '#65b9c9', accent: '#dbf0d0', pants: '#43567c', skin: '#d99d79', hair: '#493b37', shoes: '#493b37', phase: 1 },
+        { name: 'Papá', role: 'rey de hoy', at: .50, height: 3.46, head: .275, width: .82, clothes: '#dc8f71', accent: '#f5d6a0', pants: '#51506b', skin: '#d99e7e', hair: '#77727a', shoes: '#393342', phase: 2, crown: true, beard: true, toolbelt: true },
+        { name: 'Mamá', role: 'más alta', at: .645, height: 4.02, head: .255, width: .72, clothes: '#9b79c9', accent: '#f4c8dd', pants: '#684c88', skin: '#e7b69a', hair: '#493548', shoes: '#493548', phase: 3 },
+        { name: 'Juan', role: 'hermano', at: .79, height: 3.68, head: .27, width: .8, clothes: '#66a889', accent: '#d3e8b3', pants: '#465d65', skin: '#d99e7e', hair: '#433735', shoes: '#343139', phase: 4, beard: true },
+      ];
+
       function draw() {
         const bounds = canvas.getBoundingClientRect();
+        const width = bounds.width;
+        const height = bounds.height;
         const now = performance.now();
         frame += 1;
-        context.clearRect(0, 0, bounds.width, bounds.height);
-        context.fillStyle = '#100f0d';
-        context.fillRect(0, 0, bounds.width, bounds.height);
+        context.clearRect(0, 0, width, height);
+        context.fillStyle = '#151221';
+        context.fillRect(0, 0, width, height);
 
-        const glow = context.createRadialGradient(bounds.width / 2, bounds.height * .45, 10, bounds.width / 2, bounds.height * .45, bounds.width * .7);
-        glow.addColorStop(0, '#55381f55');
-        glow.addColorStop(1, '#100f0d00');
+        const glow = context.createRadialGradient(width / 2, height * .48, 0, width / 2, height * .48, width * .58);
+        glow.addColorStop(0, '#71365370');
+        glow.addColorStop(1, '#15122100');
         context.fillStyle = glow;
-        context.fillRect(0, 0, bounds.width, bounds.height);
+        context.fillRect(0, 0, width, height);
 
-        for (let x = 3; x < columns - 2; x += 6) {
-          const y = 3 + Math.sin(frame / 24 + x) * .3;
-          write(x % 2 ? 'v' : '✦', x, y, palette[Math.floor(x / 6) % palette.length]);
-          write('·', x + 1, y + 1, '#f5b04c88');
+        const unit = Math.min(width * .078, height * .155);
+        const ground = height * .78;
+        const heartScale = Math.min(width / 830, height / 550);
+        const heartY = height * .51;
+        const rotation = reducedMotion.matches ? 0 : frame * .004;
+
+        context.save();
+        context.translate(width / 2, heartY);
+        context.rotate(rotation);
+        context.scale(heartScale, heartScale);
+        heartPath();
+        const heartGradient = context.createLinearGradient(-230, -220, 230, 190);
+        heartGradient.addColorStop(0, '#ffb8d0');
+        heartGradient.addColorStop(.48, '#fb6f9c');
+        heartGradient.addColorStop(1, '#ffc477');
+        context.shadowColor = '#ff6f9f';
+        context.shadowBlur = 28;
+        context.strokeStyle = heartGradient;
+        context.lineWidth = 7;
+        context.stroke();
+        context.shadowBlur = 0;
+        heartPath();
+        context.globalAlpha = .12;
+        context.fillStyle = heartGradient;
+        context.fill();
+        context.globalAlpha = 1;
+        context.restore();
+
+        // A faint wall-frame and measuring marks nod to Papaute's trade.
+        context.save();
+        context.strokeStyle = '#f4ce9742';
+        context.lineWidth = 1;
+        context.beginPath();
+        context.moveTo(width * .06, ground + unit * .12);
+        context.lineTo(width * .94, ground + unit * .12);
+        context.moveTo(width * .1, ground + unit * .12);
+        context.lineTo(width * .1, ground - unit * 1.5);
+        context.moveTo(width * .9, ground + unit * .12);
+        context.lineTo(width * .9, ground - unit * 1.5);
+        context.moveTo(width * .1, ground - unit * 1.5);
+        context.lineTo(width * .9, ground - unit * 1.5);
+        context.stroke();
+        for (let mark = 0; mark < 17; mark += 1) {
+          const x = width * .1 + mark * width * .05;
+          context.beginPath();
+          context.moveTo(x, ground + unit * .12);
+          context.lineTo(x, ground + unit * (mark % 4 === 0 ? .28 : .2));
+          context.stroke();
         }
-        centered('~*~*~  TALLER DE PAPAUTE  ~*~*~', 2, '#f5b04c');
-        centered('OBRA EN CONSTRUCCION... DE RECUERDOS!', 4, '#8ae6ce', .8);
+        context.restore();
 
-        const center = Math.floor(columns / 2);
-        const ground = rows - 4;
-        for (let x = 2; x < columns - 2; x += 1) write('_', x, ground, '#9a7958');
-
-        // Pladur boards and a wall slowly taking shape.
-        const wallTop = Math.max(10, Math.floor(rows * .43));
-        const wallBottom = ground - 2;
-        for (let y = wallTop; y < wallBottom; y += 1) {
-          for (let x = 3; x < columns - 3; x += 1) {
-            const seam = (y - wallTop) % 4 === 3 && (x + (y % 2) * 4) % 12 < 2;
-            if (seam) write('|', x, y, '#a78d70');
-            else if ((x + y * 3) % 17 === 0) write('.', x, y, '#9c80634a');
-          }
-          if (y % 4 === 3) {
-            for (let x = 4 + (y % 2) * 4; x < columns - 4; x += 12) write('+', x, y, '#c2a17a');
-          }
-        }
-        for (let x = 3; x < columns - 3; x += 1) write('-', x, wallTop, '#d6b38b');
-
-        // A cheerful worker in a hard hat, with a little arm movement.
-        const bounce = Math.sin(frame / 9) > .72 ? -1 : 0;
-        const worker = [
-          '  _____  ',
-          ' /_____\\ ',
-          ' | o o | ',
-          ' |  ^  | ',
-          '  \\___/  ',
-          frame % 36 < 18 ? '  /|\\   ' : '  /|--  ',
-          '   | |   ',
-          '  /   \\  ',
-          ' _|   |_ ',
-        ];
-        worker.forEach((line, index) => write(line, center - 4, wallTop + 1 + index + bounce, index < 2 ? '#ffbd68' : '#8ae6ce'));
-        write('(*^▽^*)', center - 4, wallTop + 10 + bounce, '#fff3df', .72);
-
-        // The toolbox, cutter, tape measure, pencils and trowel.
-        const left = Math.max(2, center - 25);
-        const right = Math.min(columns - 14, center + 15);
-        write(' _________ ', left, ground - 5, '#f28c72');
-        write('|  CAJA   |', left, ground - 4, '#f28c72');
-        write('|_________|', left, ground - 3, '#f28c72');
-        write('===[#]---->', left + 1, ground - 7 + Math.sin(frame / 8), '#d2a4ff', .78);
-        write('CUTTER', left + 2, ground - 2, '#fff3df', .65);
-        write(' .------. ', right, ground - 6, '#8ae6ce', .8);
-        write('(  METRO )', right, ground - 5, '#8ae6ce', .8);
-        write(' `------´ ', right, ground - 4, '#8ae6ce', .8);
-        write('  /', right + 1, ground - 2, '#ffbd68');
-        write(' /', right + 2, ground - 3, '#ffbd68');
-        write('LAPIZ', right + 4, ground - 2, '#fff3df', .65);
-        write('---<', center + 8, ground - 8 + Math.sin(frame / 10), '#ffbd68', .8);
-        write('LLANA', center + 9, ground - 7, '#fff3df', .65);
-
-        centered(now < celebrationUntil ? 'FELICIDADES, PAPAUTE!' : 'MAESTRO DEL PLADUR Y DEL BUEN HUMOR', rows - 2, now < celebrationUntil ? '#ffbd68' : '#f5b04c', .78);
+        family.forEach((person) => {
+          drawPerson(width * person.at, ground, unit, person, now);
+        });
 
         for (let i = particles.length - 1; i >= 0; i -= 1) {
           const particle = particles[i];
-          write(particle.char, particle.x, particle.y, particle.color);
+          context.globalAlpha = Math.min(1, particle.life / 18);
+          context.fillStyle = particle.color;
+          context.shadowColor = particle.color;
+          context.shadowBlur = 12;
+          context.beginPath();
+          context.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+          context.fill();
           particle.x += particle.vx;
           particle.y += particle.vy;
-          particle.vy += .009;
+          particle.vy += .035;
           particle.life -= 1;
           if (particle.life <= 0) particles.splice(i, 1);
         }
+        context.globalAlpha = 1;
+        context.shadowBlur = 0;
 
         if (!reducedMotion.matches || particles.length) requestAnimationFrame(draw);
       }
@@ -382,7 +526,7 @@ const title = 'Feliz cumpleaños Papaute';
             oscillator.stop(audioContext.currentTime + 1.15);
             noteIndex += 1;
           }, 1250);
-          soundButton.textContent = '♫ Silenciar ambiente';
+          soundButton.textContent = '♫ Silenciar música';
           soundButton.setAttribute('aria-pressed', 'true');
           audioStatus.textContent = 'Ambiente original activado.';
         }).catch(() => {
@@ -396,7 +540,7 @@ const title = 'Feliz cumpleaños Papaute';
         masterGain?.disconnect();
         audioContext?.suspend();
         audioNodes = [];
-        soundButton.textContent = '♫ Activar ambiente';
+        soundButton.textContent = '♫ Poner música';
         soundButton.setAttribute('aria-pressed', 'false');
         audioStatus.textContent = 'Ambiente musical pausado.';
       }
@@ -404,20 +548,22 @@ const title = 'Feliz cumpleaños Papaute';
       canvas.addEventListener('pointerdown', (event) => {
         const bounds = canvas.getBoundingClientRect();
         celebrate(
-          ((event.clientX - bounds.left) / bounds.width) * columns,
-          ((event.clientY - bounds.top) / bounds.height) * rows,
+          event.clientX - bounds.left,
+          event.clientY - bounds.top,
         );
         if (reducedMotion.matches) requestAnimationFrame(draw);
       });
       canvas.addEventListener('keydown', (event) => {
         if (event.key === 'Enter' || event.key === ' ') {
           event.preventDefault();
-          celebrate();
+          const bounds = canvas.getBoundingClientRect();
+          celebrate(bounds.width / 2, bounds.height * .4);
           if (reducedMotion.matches) requestAnimationFrame(draw);
         }
       });
       partyButton.addEventListener('click', () => {
-        celebrate();
+        const bounds = canvas.getBoundingClientRect();
+        celebrate(bounds.width / 2, bounds.height * .4);
         if (reducedMotion.matches) requestAnimationFrame(draw);
       });
       soundButton.addEventListener('click', () => {
