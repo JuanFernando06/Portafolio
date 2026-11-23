@@ -10,6 +10,12 @@ const title = '¡Feliz cumpleaños, Papaute!';
     <meta name="description" content="Una felicitación de cumpleaños para Papaute." />
     <title>{title}</title>
     <style>
+      html {
+        min-height: 100%;
+        overflow-y: scroll;
+        scroll-behavior: smooth;
+      }
+
       :root {
         color-scheme: dark;
         font-family: system-ui, sans-serif;
@@ -37,8 +43,8 @@ const title = '¡Feliz cumpleaños, Papaute!';
         position: relative;
         display: grid;
         min-height: 100svh;
-        place-items: center;
-        padding: clamp(3rem, 8vh, 5rem) 1rem 2.5rem;
+        place-items: start center;
+        padding: clamp(4rem, 8vh, 5rem) 1rem 3rem;
         isolation: isolate;
       }
 
@@ -73,7 +79,6 @@ const title = '¡Feliz cumpleaños, Papaute!';
         box-shadow: 0 30px 100px #09071470, inset 0 1px #ffffff20;
         text-align: center;
         backdrop-filter: blur(18px);
-        transform: translateY(clamp(8px, 2vh, 18px));
       }
 
       .eyebrow {
@@ -182,6 +187,20 @@ const title = '¡Feliz cumpleaños, Papaute!';
         font-size: .82rem;
       }
 
+      .scroll-hint {
+        position: fixed;
+        z-index: 4;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        padding: 1.2rem 1rem .7rem;
+        background: linear-gradient(transparent, #17132feF 42%);
+        color: #f7b7da;
+        font-size: .78rem;
+        text-align: center;
+        pointer-events: none;
+      }
+
       .confetti {
         position: fixed;
         z-index: 3;
@@ -214,6 +233,10 @@ const title = '¡Feliz cumpleaños, Papaute!';
           animation-duration: .01ms !important;
           animation-iteration-count: 1 !important;
           scroll-behavior: auto !important;
+        }
+
+        @media (min-height: 760px) {
+          .scroll-hint { display: none; }
         }
       }
     </style>
@@ -269,6 +292,7 @@ const title = '¡Feliz cumpleaños, Papaute!';
         </div>
         <p id="status" class="status" role="status" aria-live="polite"></p>
       </section>
+      <div class="scroll-hint" aria-hidden="true">Desliza para ver todo ↓</div>
     </main>
 
     <script>
