@@ -1,0 +1,435 @@
+---
+const title = 'Feliz cumpleaños Papaute';
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#17130f" />
+    <meta name="description" content="Una felicitación animada para Papaute." />
+    <title>{title}</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        font-family: system-ui, sans-serif;
+        background: #17130f;
+        color: #fff3df;
+        font-synthesis: none;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        min-width: 320px;
+        min-height: 100vh;
+        margin: 0;
+        overflow-x: hidden;
+        background:
+          radial-gradient(ellipse at 50% 0%, #493322 0%, transparent 52%),
+          linear-gradient(160deg, #211a14, #100e0c 72%);
+      }
+
+      main {
+        width: min(100% - 2rem, 1080px);
+        margin: 0 auto;
+        padding: clamp(2rem, 7vh, 5rem) 0 2rem;
+        text-align: center;
+      }
+
+      .eyebrow {
+        margin: 0 0 .8rem;
+        color: #f5b04c;
+        font: 700 .72rem/1.4 ui-monospace, monospace;
+        letter-spacing: .24em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0;
+        color: #fff3df;
+        font-size: clamp(2.4rem, 8vw, 5.7rem);
+        line-height: .98;
+        letter-spacing: -.065em;
+        text-wrap: balance;
+        text-shadow: 0 5px 35px #f3983740;
+      }
+
+      h1 span {
+        display: block;
+        color: #ffb84d;
+      }
+
+      .intro {
+        margin: 1rem auto 1.8rem;
+        color: #cbbba6;
+        font-size: clamp(.95rem, 2vw, 1.08rem);
+      }
+
+      .scene {
+        position: relative;
+        overflow: hidden;
+        border: 1px solid #f5b04c48;
+        border-radius: 1.2rem;
+        background: #100f0de8;
+        box-shadow: 0 30px 100px #0008, inset 0 1px #fff2;
+      }
+
+      .scene::before {
+        position: absolute;
+        z-index: 1;
+        inset: 0;
+        pointer-events: none;
+        content: "";
+        background: repeating-linear-gradient(0deg, #ffffff08 0 1px, transparent 1px 4px);
+        opacity: .24;
+      }
+
+      canvas {
+        display: block;
+        width: 100%;
+        height: clamp(340px, 56vw, 570px);
+        cursor: crosshair;
+        touch-action: manipulation;
+      }
+
+      .scene-label {
+        position: absolute;
+        z-index: 2;
+        top: .8rem;
+        left: 1rem;
+        color: #ffe1ae;
+        font: 600 .68rem/1 ui-monospace, monospace;
+        letter-spacing: .14em;
+        text-transform: uppercase;
+        opacity: .72;
+        pointer-events: none;
+      }
+
+      .controls {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: .75rem;
+        margin: 1.2rem 0 .8rem;
+      }
+
+      button {
+        min-height: 46px;
+        padding: .7rem 1.15rem;
+        border: 1px solid #ffbd6870;
+        border-radius: 999px;
+        background: #f5a6401c;
+        color: #fff3df;
+        font: 650 .9rem/1.2 system-ui, sans-serif;
+        cursor: pointer;
+        transition: transform .2s ease, background .2s ease, border-color .2s ease;
+      }
+
+      button:hover {
+        transform: translateY(-2px);
+        border-color: #ffbd68;
+        background: #f5a64035;
+      }
+
+      button:focus-visible, canvas:focus-visible {
+        outline: 3px solid #8ae6ce;
+        outline-offset: 4px;
+      }
+
+      .sound-button[aria-pressed="true"] {
+        border-color: #8ae6ce;
+        background: #48b9a52b;
+      }
+
+      .hint, #audio-status {
+        min-height: 1.4em;
+        margin: .55rem 0 0;
+        color: #b6a58f;
+        font-size: .82rem;
+      }
+
+      .hint kbd {
+        padding: .12rem .35rem;
+        border: 1px solid #ffffff30;
+        border-radius: .3rem;
+        color: #f3d9b4;
+        font: inherit;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after {
+          scroll-behavior: auto !important;
+          transition-duration: .01ms !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p class="eyebrow">Jefe de obra · Leyenda del pladur</p>
+      <h1>Feliz cumpleaños <span>Papaute</span></h1>
+      <p class="intro">Hoy se aparcan las herramientas... ¡y se celebra por todo lo alto!</p>
+
+      <div class="scene">
+        <span class="scene-label" aria-hidden="true">Obra maestra · Edición cumple</span>
+        <canvas
+          id="workshop"
+          role="img"
+          aria-label="Animación ASCII de un pladurista con cutter, metro, lápices y herramientas. Pulsa o haz clic para lanzar confeti."
+          tabindex="0"
+        ></canvas>
+      </div>
+
+      <div class="controls">
+        <button id="party" type="button">¡Que empiece la fiesta! 🎉</button>
+        <button id="sound" class="sound-button" type="button" aria-pressed="false">♫ Activar ambiente</button>
+      </div>
+      <p class="hint">Haz clic en la obra o pulsa <kbd>Enter</kbd> para lanzar confeti.</p>
+      <p id="audio-status" role="status" aria-live="polite"></p>
+    </main>
+
+    <script>
+      const canvas = document.querySelector('#workshop');
+      const context = canvas.getContext('2d');
+      const partyButton = document.querySelector('#party');
+      const soundButton = document.querySelector('#sound');
+      const audioStatus = document.querySelector('#audio-status');
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      const palette = ['#ffbd68', '#8ae6ce', '#f28c72', '#d2a4ff', '#fff3df'];
+      const particles = [];
+      let columns = 80;
+      let rows = 30;
+      let cellWidth = 10;
+      let cellHeight = 18;
+      let frame = 0;
+      let celebrationUntil = 0;
+      let audioContext;
+      let audioTimer;
+      let audioNodes = [];
+      let masterGain;
+
+      function resizeCanvas() {
+        const bounds = canvas.getBoundingClientRect();
+        const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+        canvas.width = Math.round(bounds.width * pixelRatio);
+        canvas.height = Math.round(bounds.height * pixelRatio);
+        context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+        context.textBaseline = 'top';
+        cellWidth = Math.max(6, Math.min(12, bounds.width / 88));
+        cellHeight = cellWidth * 1.72;
+        columns = Math.floor(bounds.width / cellWidth);
+        rows = Math.floor(bounds.height / cellHeight);
+      }
+
+      function write(text, x, y, color = '#fff3df', size = 1) {
+        context.fillStyle = color;
+        context.font = `700 ${cellWidth * size}px ui-monospace, "Courier New", monospace`;
+        context.fillText(text, x * cellWidth, y * cellHeight);
+      }
+
+      function centered(text, y, color, size = 1) {
+        const length = text.length * size;
+        write(text, Math.max(0, (columns - length) / 2), y, color, size);
+      }
+
+      function celebrate(x = Math.random() * columns, y = Math.random() * rows * .55) {
+        celebrationUntil = performance.now() + 1800;
+        for (let i = 0; i < 48; i += 1) {
+          const angle = Math.random() * Math.PI * 2;
+          const speed = .12 + Math.random() * .28;
+          particles.push({
+            x, y, vx: Math.cos(angle) * speed, vy: Math.sin(angle) * speed - .12,
+            life: 45 + Math.random() * 35, char: ['*', '+', '.', '✦'][Math.floor(Math.random() * 4)],
+            color: palette[Math.floor(Math.random() * palette.length)],
+          });
+        }
+      }
+
+      function draw() {
+        const bounds = canvas.getBoundingClientRect();
+        const now = performance.now();
+        frame += 1;
+        context.clearRect(0, 0, bounds.width, bounds.height);
+        context.fillStyle = '#100f0d';
+        context.fillRect(0, 0, bounds.width, bounds.height);
+
+        const glow = context.createRadialGradient(bounds.width / 2, bounds.height * .45, 10, bounds.width / 2, bounds.height * .45, bounds.width * .7);
+        glow.addColorStop(0, '#55381f55');
+        glow.addColorStop(1, '#100f0d00');
+        context.fillStyle = glow;
+        context.fillRect(0, 0, bounds.width, bounds.height);
+
+        for (let x = 3; x < columns - 2; x += 6) {
+          const y = 3 + Math.sin(frame / 24 + x) * .3;
+          write(x % 2 ? 'v' : '✦', x, y, palette[Math.floor(x / 6) % palette.length]);
+          write('·', x + 1, y + 1, '#f5b04c88');
+        }
+        centered('~*~*~  TALLER DE PAPAUTE  ~*~*~', 2, '#f5b04c');
+        centered('OBRA EN CONSTRUCCION... DE RECUERDOS!', 4, '#8ae6ce', .8);
+
+        const center = Math.floor(columns / 2);
+        const ground = rows - 4;
+        for (let x = 2; x < columns - 2; x += 1) write('_', x, ground, '#9a7958');
+
+        // Pladur boards and a wall slowly taking shape.
+        const wallTop = Math.max(10, Math.floor(rows * .43));
+        const wallBottom = ground - 2;
+        for (let y = wallTop; y < wallBottom; y += 1) {
+          for (let x = 3; x < columns - 3; x += 1) {
+            const seam = (y - wallTop) % 4 === 3 && (x + (y % 2) * 4) % 12 < 2;
+            if (seam) write('|', x, y, '#a78d70');
+            else if ((x + y * 3) % 17 === 0) write('.', x, y, '#9c80634a');
+          }
+          if (y % 4 === 3) {
+            for (let x = 4 + (y % 2) * 4; x < columns - 4; x += 12) write('+', x, y, '#c2a17a');
+          }
+        }
+        for (let x = 3; x < columns - 3; x += 1) write('-', x, wallTop, '#d6b38b');
+
+        // A cheerful worker in a hard hat, with a little arm movement.
+        const bounce = Math.sin(frame / 9) > .72 ? -1 : 0;
+        const worker = [
+          '  _____  ',
+          ' /_____\\ ',
+          ' | o o | ',
+          ' |  ^  | ',
+          '  \\___/  ',
+          frame % 36 < 18 ? '  /|\\   ' : '  /|--  ',
+          '   | |   ',
+          '  /   \\  ',
+          ' _|   |_ ',
+        ];
+        worker.forEach((line, index) => write(line, center - 4, wallTop + 1 + index + bounce, index < 2 ? '#ffbd68' : '#8ae6ce'));
+        write('(*^▽^*)', center - 4, wallTop + 10 + bounce, '#fff3df', .72);
+
+        // The toolbox, cutter, tape measure, pencils and trowel.
+        const left = Math.max(2, center - 25);
+        const right = Math.min(columns - 14, center + 15);
+        write(' _________ ', left, ground - 5, '#f28c72');
+        write('|  CAJA   |', left, ground - 4, '#f28c72');
+        write('|_________|', left, ground - 3, '#f28c72');
+        write('===[#]---->', left + 1, ground - 7 + Math.sin(frame / 8), '#d2a4ff', .78);
+        write('CUTTER', left + 2, ground - 2, '#fff3df', .65);
+        write(' .------. ', right, ground - 6, '#8ae6ce', .8);
+        write('(  METRO )', right, ground - 5, '#8ae6ce', .8);
+        write(' `------´ ', right, ground - 4, '#8ae6ce', .8);
+        write('  /', right + 1, ground - 2, '#ffbd68');
+        write(' /', right + 2, ground - 3, '#ffbd68');
+        write('LAPIZ', right + 4, ground - 2, '#fff3df', .65);
+        write('---<', center + 8, ground - 8 + Math.sin(frame / 10), '#ffbd68', .8);
+        write('LLANA', center + 9, ground - 7, '#fff3df', .65);
+
+        centered(now < celebrationUntil ? 'FELICIDADES, PAPAUTE!' : 'MAESTRO DEL PLADUR Y DEL BUEN HUMOR', rows - 2, now < celebrationUntil ? '#ffbd68' : '#f5b04c', .78);
+
+        for (let i = particles.length - 1; i >= 0; i -= 1) {
+          const particle = particles[i];
+          write(particle.char, particle.x, particle.y, particle.color);
+          particle.x += particle.vx;
+          particle.y += particle.vy;
+          particle.vy += .009;
+          particle.life -= 1;
+          if (particle.life <= 0) particles.splice(i, 1);
+        }
+
+        if (!reducedMotion.matches || particles.length) requestAnimationFrame(draw);
+      }
+
+      function startAudio() {
+        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+        if (!AudioContextClass) {
+          audioStatus.textContent = 'Este navegador no permite reproducir el ambiente musical.';
+          return;
+        }
+
+        audioContext = audioContext || new AudioContextClass();
+        audioContext.resume().then(() => {
+          masterGain = audioContext.createGain();
+          masterGain.gain.value = .045;
+          masterGain.connect(audioContext.destination);
+          audioNodes = [];
+          const notes = [130.81, 164.81, 196, 261.63];
+          notes.forEach((frequency, index) => {
+            const oscillator = audioContext.createOscillator();
+            const gain = audioContext.createGain();
+            oscillator.type = index === 3 ? 'sine' : 'triangle';
+            oscillator.frequency.value = frequency;
+            gain.gain.value = index === 3 ? .17 : .1;
+            oscillator.connect(gain);
+            gain.connect(masterGain);
+            oscillator.start();
+            audioNodes.push(oscillator);
+          });
+
+          let noteIndex = 0;
+          audioTimer = window.setInterval(() => {
+            const oscillator = audioContext.createOscillator();
+            const gain = audioContext.createGain();
+            oscillator.type = 'sine';
+            oscillator.frequency.value = [523.25, 659.25, 783.99, 659.25][noteIndex % 4];
+            gain.gain.setValueAtTime(.0001, audioContext.currentTime);
+            gain.gain.exponentialRampToValueAtTime(.12, audioContext.currentTime + .08);
+            gain.gain.exponentialRampToValueAtTime(.0001, audioContext.currentTime + 1.1);
+            oscillator.connect(gain);
+            gain.connect(masterGain);
+            audioNodes.push(oscillator);
+            oscillator.addEventListener('ended', () => {
+              audioNodes = audioNodes.filter((node) => node !== oscillator);
+            }, { once: true });
+            oscillator.start();
+            oscillator.stop(audioContext.currentTime + 1.15);
+            noteIndex += 1;
+          }, 1250);
+          soundButton.textContent = '♫ Silenciar ambiente';
+          soundButton.setAttribute('aria-pressed', 'true');
+          audioStatus.textContent = 'Ambiente original activado.';
+        }).catch(() => {
+          audioStatus.textContent = 'No se pudo iniciar el audio. Prueba de nuevo con el botón.';
+        });
+      }
+
+      function stopAudio() {
+        window.clearInterval(audioTimer);
+        audioNodes.forEach((node) => node.stop());
+        masterGain?.disconnect();
+        audioContext?.suspend();
+        audioNodes = [];
+        soundButton.textContent = '♫ Activar ambiente';
+        soundButton.setAttribute('aria-pressed', 'false');
+        audioStatus.textContent = 'Ambiente musical pausado.';
+      }
+
+      canvas.addEventListener('pointerdown', (event) => {
+        const bounds = canvas.getBoundingClientRect();
+        celebrate(
+          ((event.clientX - bounds.left) / bounds.width) * columns,
+          ((event.clientY - bounds.top) / bounds.height) * rows,
+        );
+        if (reducedMotion.matches) requestAnimationFrame(draw);
+      });
+      canvas.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          celebrate();
+          if (reducedMotion.matches) requestAnimationFrame(draw);
+        }
+      });
+      partyButton.addEventListener('click', () => {
+        celebrate();
+        if (reducedMotion.matches) requestAnimationFrame(draw);
+      });
+      soundButton.addEventListener('click', () => {
+        if (soundButton.getAttribute('aria-pressed') === 'true') stopAudio();
+        else startAudio();
+      });
+      window.addEventListener('resize', () => {
+        resizeCanvas();
+        requestAnimationFrame(draw);
+      });
+      resizeCanvas();
+      requestAnimationFrame(draw);
+    </script>
+  </body>
+</html>
