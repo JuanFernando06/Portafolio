@@ -234,10 +234,10 @@ const title = '¡Feliz cumpleaños, Papaute!';
           animation-iteration-count: 1 !important;
           scroll-behavior: auto !important;
         }
+      }
 
-        @media (min-height: 760px) {
-          .scroll-hint { display: none; }
-        }
+      @media (min-height: 760px) {
+        .scroll-hint { display: none; }
       }
     </style>
   </head>
@@ -299,12 +299,19 @@ const title = '¡Feliz cumpleaños, Papaute!';
       const wishButton = document.querySelector('#wish');
       const musicButton = document.querySelector('#music');
       const status = document.querySelector('#status');
+      const fartSound = new Audio('/dry-fart.mp3');
       const colors = ['#ff8db8', '#ffd46f', '#a9e8d2', '#b995ff', '#fff4d2'];
       let audioContext;
       let masterGain;
       let oscillators = [];
 
       wishButton.addEventListener('click', () => {
+        fartSound.pause();
+        fartSound.currentTime = 0;
+        fartSound.play().catch(() => {
+          status.textContent = 'No se pudo reproducir el efecto de sonido.';
+        });
+
         for (let i = 0; i < 72; i += 1) {
           const piece = document.createElement('span');
           piece.className = 'confetti';
